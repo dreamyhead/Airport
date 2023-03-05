@@ -1,0 +1,66 @@
+<section class="example-container" tabindex="0">
+  <mat-table [dataSource]="bilets" class="table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="numberOfFlight">
+      <mat-header-cell *matHeaderCellDef> Название </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.numberOfFlight}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="numberOfPlace">
+      <mat-header-cell *matHeaderCellDef> Место </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.numberOfPlace}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef> Цена </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="flight-start">
+      <mat-header-cell *matHeaderCellDef> Откуда </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.flight?.startPoint}} </mat-cell>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="flight-end">
+      <mat-header-cell *matHeaderCellDef> Куда </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.flight?.endPoint}} </mat-cell>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="flight-startdate">
+      <mat-header-cell *matHeaderCellDef> Дата начала </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.flight?.startDate}} </mat-cell>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="flight-enddate">
+      <mat-header-cell *matHeaderCellDef> Дата конца </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.flight?.endDate}} </mat-cell>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="user-name">
+      <mat-header-cell *matHeaderCellDef> Имя покупателя </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element?.user?.name}} </mat-cell>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="button-group">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element" class="group-button">
+        <button mat-flat-button color="Accent" (click)="updateBusy(element.id)">
+          Вернуть
+        </button>
+      </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</section>

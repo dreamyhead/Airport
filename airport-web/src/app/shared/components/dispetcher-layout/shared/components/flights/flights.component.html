@@ -1,0 +1,54 @@
+<section class="example-container" tabindex="0">
+  <mat-table [dataSource]="flights" class="table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="startPoint">
+      <mat-header-cell *matHeaderCellDef> Откуда </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.startPoint}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="endPoint">
+      <mat-header-cell *matHeaderCellDef> Куда </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.endPoint}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="startDate">
+      <mat-header-cell *matHeaderCellDef> Дата отправления </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.startDate}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="endDate">
+      <mat-header-cell *matHeaderCellDef> Дата приземления </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.endDate}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="airplane">
+      <mat-header-cell *matHeaderCellDef> Самолет </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.airplane?.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="button-group">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element" class="group-button">
+
+<!--        <button mat-flat-button color="warn" (click)="updateBusy(element.id)">-->
+<!--          Занять-->
+<!--        </button>-->
+      </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</section>

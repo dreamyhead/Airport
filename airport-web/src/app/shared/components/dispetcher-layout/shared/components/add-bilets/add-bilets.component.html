@@ -1,0 +1,19 @@
+<form class="container" [formGroup]="form" (ngSubmit)="createEmployee()">
+  <mat-form-field appearance="outline">
+    <mat-label>Место</mat-label>
+    <input matInput formControlName="numberOfPlace">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Цена</mat-label>
+    <input matInput formControlName="price">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Рейс</mat-label>
+    <mat-select disableOptionCentering [(ngModel)]="selectedFlightId" formControlName="flight">
+      <mat-option *ngFor="let flight of flights" [value]="flight.id">
+        {{flight.startPoint}}---{{flight.endPoint}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-button type="submit">Создать билет</button>
+</form>

@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <span>Аэропорт</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="primary" (click)="logout()">Выход</button>
+</mat-toolbar>
+<div class="row" style="margin:15px;align-items: center; justify-content: center">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline" style="padding:15px;">
+      <mat-label>Откуда</mat-label>
+      <input matInput placeholder="Москва" formControlName="startpoint">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="padding:15px;">
+      <mat-label>Куда</mat-label>
+      <input matInput placeholder="Санкт-Петербург" formControlName="endpoint">
+    </mat-form-field>
+    <button mat-button type="submit" style="padding:15px;">Найти</button>
+  </form>
+</div>
+<div class="row">
+  <div class="column-large">
+    <h1 style="margin: 15px;">Билеты</h1>
+    <app-ticket *ngFor="let ticket of tickets">
+      <h1>{{ticket.flight?.startPoint}} - {{ticket.flight?.endPoint}}</h1>
+      <h2>{{ticket.flight?.startDate }} - {{ticket.flight?.endDate}}</h2>
+      <h2>Цена: {{ticket.price}}</h2>
+      <button mat-button color="primary" (click)="bought(ticket.id)">Купить</button>
+    </app-ticket>
+  </div>
+  <div class="column-small">
+
+  </div>
+</div>

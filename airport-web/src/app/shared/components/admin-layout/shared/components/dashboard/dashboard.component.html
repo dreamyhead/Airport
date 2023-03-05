@@ -1,0 +1,23 @@
+<form class="container" [formGroup]="form" (ngSubmit)="createEmployee()">
+  <mat-form-field appearance="outline">
+    <mat-label>Логин</mat-label>
+    <input matInput formControlName="login">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Пароль</mat-label>
+    <input matInput formControlName="password">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Роль</mat-label>
+    <input matInput formControlName="role">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Имя</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Фамилия</mat-label>
+    <input matInput formControlName="lastName">
+  </mat-form-field>
+  <button mat-button type="submit">Создать рабочего</button>
+</form>

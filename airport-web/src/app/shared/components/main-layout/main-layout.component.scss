@@ -1,0 +1,9 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+app-ticket {
+  margin: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

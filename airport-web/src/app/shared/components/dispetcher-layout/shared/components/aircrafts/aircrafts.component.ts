@@ -17,7 +17,9 @@ export class AircraftsComponent {
   ngOnInit(): void {
     this.http.get<Airplane[]>("https://localhost:7096/api/Airplane/get")
       .subscribe(data => {
-        this.airplanes = data
+        this.airplanes = data.filter((item) => {
+          return item.isBought === true
+        })
       })
   }
 
@@ -25,7 +27,11 @@ export class AircraftsComponent {
     this.http.get<Airplane>("https://localhost:7096/api/Airplane/updatebusy?id="+ id)
       .subscribe(() => {
         this.http.get<Airplane[]>("https://localhost:7096/api/Airplane/get")
-          .subscribe(data => this.airplanes = data)
+          .subscribe(data => {
+            this.airplanes = data.filter((item) => {
+              return item.isBought === true
+            })
+          })
       })
   }
 

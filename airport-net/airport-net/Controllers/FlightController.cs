@@ -81,7 +81,15 @@ namespace airport_net.Controllers
         [Route("delete")]
         public void Delete(int id)
         {
+            var user = db.Flights.Find(id);
 
+            if (user != null)
+            {
+                var airplane = db.Airplanes.Find(user.AirplaneId);
+                airplane.IsBusy = false;
+                db.Flights.Remove(user);
+                db.SaveChanges();
+            }
         }
     }
 }

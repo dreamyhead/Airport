@@ -40,10 +40,9 @@
     <ng-container matColumnDef="button-group">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let element" class="group-button">
-
-<!--        <button mat-flat-button color="warn" (click)="updateBusy(element.id)">-->
-<!--          Занять-->
-<!--        </button>-->
+        <button mat-flat-button color="warn" (click)="deleteUser(element.id)">
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-cell>
     </ng-container>
 

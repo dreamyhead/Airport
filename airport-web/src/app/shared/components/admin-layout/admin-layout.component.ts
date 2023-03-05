@@ -13,6 +13,9 @@ export class AdminLayoutComponent {
     private router: Router
   ) { }
 
+  add() {
+    this.router.navigate(['/admin/dashboard'])
+  }
   airplane() {
     this.router.navigate(['/admin/airplane'])
   }

@@ -46,7 +46,7 @@ export class AddFlightsComponent {
       .subscribe(data => {
         console.log(data)
         this.airplanes = data.filter((item)=> {
-          return item.isBusy === false
+          return item.isBusy === false && item.isBought === true
         })
         console.log(this.airplanes)
       })
@@ -62,7 +62,6 @@ export class AddFlightsComponent {
       endPoint: this.form.value.endpoint,
       startDate: this.form.value.startdate,
       endDate: this.form.value.enddate,
-
       airplaneId:  this.selectedAirplaneId
     }
     console.log(newFlight)
